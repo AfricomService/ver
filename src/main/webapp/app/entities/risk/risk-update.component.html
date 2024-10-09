@@ -1,0 +1,75 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-risk-heading" jhiTranslate="verprojectsApp.risk.home.createOrEditLabel">Create or edit a Risk</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="verprojectsApp.risk.riskId" for="field_riskId">Risk Id</label>
+                    <input type="number" class="form-control" name="riskId" id="field_riskId"
+                           formControlName="riskId"/>
+                    <div *ngIf="editForm.get('riskId')!.invalid && (editForm.get('riskId')!.dirty || editForm.get('riskId')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('riskId')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('riskId')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="verprojectsApp.risk.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                    <div *ngIf="editForm.get('description')!.invalid && (editForm.get('description')!.dirty || editForm.get('description')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('description')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="verprojectsApp.risk.probability" for="field_probability">Probability</label>
+                    <input type="number" class="form-control" name="probability" id="field_probability"
+                           formControlName="probability"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="verprojectsApp.risk.impact" for="field_impact">Impact</label>
+                    <input type="number" class="form-control" name="impact" id="field_impact"
+                           formControlName="impact"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="verprojectsApp.risk.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" formControlName="status" id="field_status">
+                        <option value="OPEN">{{ 'verprojectsApp.RiskStatus.OPEN' | translate }}</option>
+                        <option value="MITIGATED">{{ 'verprojectsApp.RiskStatus.MITIGATED' | translate }}</option>
+                        <option value="CLOSED">{{ 'verprojectsApp.RiskStatus.CLOSED' | translate }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

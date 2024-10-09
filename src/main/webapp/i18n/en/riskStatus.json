@@ -1,0 +1,10 @@
+{
+  "verprojectsApp": {
+    "RiskStatus": {
+      "null": "",
+      "OPEN": "OPEN",
+      "MITIGATED": "MITIGATED",
+      "CLOSED": "CLOSED"
+    }
+  }
+}

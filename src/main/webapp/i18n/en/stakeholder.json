@@ -1,0 +1,25 @@
+{
+  "verprojectsApp": {
+    "stakeholder": {
+      "home": {
+        "title": "Stakeholders",
+        "createLabel": "Create a new Stakeholder",
+        "createOrEditLabel": "Create or edit a Stakeholder",
+        "notFound": "No Stakeholders found"
+      },
+      "created": "A new Stakeholder is created with identifier {{ param }}",
+      "updated": "A Stakeholder is updated with identifier {{ param }}",
+      "deleted": "A Stakeholder is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Stakeholder {{ id }}?"
+      },
+      "detail": {
+        "title": "Stakeholder"
+      },
+      "stakeholderId": "Stakeholder Id",
+      "name": "Name",
+      "role": "Role",
+      "task": "Task"
+    }
+  }
+}

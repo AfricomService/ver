@@ -1,0 +1,40 @@
+{
+  "name": "Stakeholder",
+  "fields": [
+    {
+      "fieldName": "stakeholderId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "role",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "task",
+      "otherEntityRelationshipName": "stakeholder",
+      "relationshipName": "task",
+      "ownerSide": false
+    }
+  ],
+  "changelogDate": "20241009151911",
+  "entityTableName": "stakeholder",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["verprojects"]
+}

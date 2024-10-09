@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="incident">
+            <h2><span jhiTranslate="verprojectsApp.incident.detail.title">Incident</span> {{ incident.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="verprojectsApp.incident.incidentId">Incident Id</span></dt>
+                <dd>
+                    <span>{{ incident.incidentId }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.incident.description">Description</span></dt>
+                <dd>
+                    <span>{{ incident.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.incident.discoveryDate">Discovery Date</span></dt>
+                <dd>
+                    <span>{{ incident.discoveryDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.incident.severity">Severity</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'verprojectsApp.IncidentSeverity.' + incident.severity }}">{{ incident.severity }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.incident.status">Status</span></dt>
+                <dd>
+                    <span>{{ incident.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.incident.responsible">Responsible</span></dt>
+                <dd>
+                    <span>{{ incident.responsible }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.incident.mitigationDate">Mitigation Date</span></dt>
+                <dd>
+                    <span>{{ incident.mitigationDate }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/incident', incident.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

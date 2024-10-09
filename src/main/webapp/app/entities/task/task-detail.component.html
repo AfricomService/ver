@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="task">
+            <h2><span jhiTranslate="verprojectsApp.task.detail.title">Task</span> {{ task.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="verprojectsApp.task.taskId">Task Id</span></dt>
+                <dd>
+                    <span>{{ task.taskId }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.name">Name</span></dt>
+                <dd>
+                    <span>{{ task.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.description">Description</span></dt>
+                <dd>
+                    <span>{{ task.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.startDate">Start Date</span></dt>
+                <dd>
+                    <span>{{ task.startDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.endDate">End Date</span></dt>
+                <dd>
+                    <span>{{ task.endDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.estimatedCost">Estimated Cost</span></dt>
+                <dd>
+                    <span>{{ task.estimatedCost }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'verprojectsApp.TaskStatus.' + task.status }}">{{ task.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.stakeholder">Stakeholder</span></dt>
+                <dd>
+                    <div *ngIf="task.stakeholderId">
+                        <a [routerLink]="['/stakeholder', task.stakeholderId, 'view']">{{ task.stakeholderId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.project">Project</span></dt>
+                <dd>
+                    <div *ngIf="task.projectId">
+                        <a [routerLink]="['/project', task.projectId, 'view']">{{ task.projectId }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="verprojectsApp.task.resource">Resource</span></dt>
+                <dd>
+                    <div *ngIf="task.resourceId">
+                        <a [routerLink]="['/resource', task.resourceId, 'view']">{{ task.resourceId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/task', task.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+id;risk_id;description;probability;impact;status
+1;12188;24/7;33294;44058;CLOSED
+2;87868;Bedfordshire Home Loan Account navigate;43921;24830;OPEN
+3;46112;Tennessee;61011;5770;OPEN
+4;80469;Customer Florida;77280;67124;MITIGATED
+5;13982;leading-edge;19699;37815;CLOSED
+6;82316;programming open system Monitored;65497;23332;CLOSED
+7;88794;Plastic;18292;65982;CLOSED
+8;73179;Saudi Riyal Internal;49665;94123;CLOSED
+9;62747;Cayman Islands orchid;34772;80467;MITIGATED
+10;66656;Global SCSI Unbranded;90505;19604;OPEN

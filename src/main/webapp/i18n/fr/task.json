@@ -1,0 +1,32 @@
+{
+  "verprojectsApp": {
+    "task": {
+      "home": {
+        "title": "Tasks",
+        "createLabel": "Créer un nouveau Task",
+        "createOrEditLabel": "Créer ou éditer un Task",
+        "notFound": "Aucun Task trouvé"
+      },
+      "created": "Un nouveau Task a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Task avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Task avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Task {{ id }} ?"
+      },
+      "detail": {
+        "title": "Task"
+      },
+      "taskId": "Task Id",
+      "name": "Name",
+      "description": "Description",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "estimatedCost": "Estimated Cost",
+      "status": "Status",
+      "stakeholder": "Stakeholder",
+      "comments": "Comments",
+      "project": "Project",
+      "resource": "Resource"
+    }
+  }
+}

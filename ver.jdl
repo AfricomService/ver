@@ -1,0 +1,113 @@
+application {
+  config {
+    baseName verprojects
+    packageName com.vermeg.verprojects
+    authenticationType jwt
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    buildTool maven
+    clientFramework angularX
+    enableTranslation true
+    nativeLanguage en
+    languages [en, fr]
+  }
+  entities *
+}
+
+enum ProjectStatus {
+  PLANNED,
+  IN_PROGRESS,
+  COMPLETED,
+  CANCELLED
+}
+
+enum TaskStatus {
+  NOT_STARTED,
+  IN_PROGRESS,
+  COMPLETED,
+  BLOCKED
+}
+
+enum IncidentSeverity {
+  LOW,
+  MEDIUM,
+  HIGH,
+  CRITICAL
+}
+
+enum RiskStatus {
+  OPEN,
+  MITIGATED,
+  CLOSED
+}
+
+entity Project {
+  projectId Long required,
+  name String required,
+  description String required,
+  status ProjectStatus required,
+  startDate LocalDate required,
+  totalCost BigDecimal required
+}
+
+entity Task {
+  taskId Long required,
+  name String required,
+  description String,
+  startDate LocalDate required,
+  endDate LocalDate,
+  estimatedCost BigDecimal,
+  status TaskStatus required
+}
+
+entity Stakeholder {
+  stakeholderId Long required,
+  name String required,
+  role String required
+}
+
+entity Resource {
+  resourceId Long required,
+  name String required,
+  role String required,
+  hourlyCost BigDecimal required
+}
+
+entity Comment {
+  commentId Long required,
+  content String required,
+  author String,
+  date LocalDate
+}
+
+entity Incident {
+  incidentId Long required,
+  description String required,
+  discoveryDate LocalDate required,
+  severity IncidentSeverity,
+  status String required,
+  responsible String,
+  mitigationDate LocalDate
+}
+
+entity Risk {
+  riskId Long required,
+  description String required,
+  probability BigDecimal,
+  impact BigDecimal,
+  status RiskStatus
+}
+
+relationship OneToMany {
+  Project{tasks} to Task{project}
+  Resource{tasks} to Task{resource}
+  Task{comments} to Comment{task}
+}
+
+relationship OneToOne {
+  Task{stakeholder} to Stakeholder{task}
+}
+
+paginate all with pagination
+dto all with mapstruct
+service all with serviceClass

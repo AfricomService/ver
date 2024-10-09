@@ -1,0 +1,40 @@
+{
+  "name": "Risk",
+  "fields": [
+    {
+      "fieldName": "riskId",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "probability",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "impact",
+      "fieldType": "BigDecimal"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "RiskStatus",
+      "fieldValues": "OPEN,MITIGATED,CLOSED"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20241009152311",
+  "entityTableName": "risk",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["verprojects"]
+}
